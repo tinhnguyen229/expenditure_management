@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="position_rule_view_tree" model="ir.ui.view">
+            <field name="name">position.rule.tree</field>
+            <field name="model">position.rule</field>
+            <field name="arch" type="xml">
+                <tree string="Position Rule">
+                    <field name="name"/>
+                    <field name="money"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="position_rule_view_form" model="ir.ui.view">
+            <field name="name">position.rule.form</field>
+            <field name="model">position.rule</field>
+            <field name="arch" type="xml">
+                <form string="Staff">
+                    <sheet>
+                        <group>
+                            <field name="name" placeholder="Ex: ceo, leader, staff, intern,..."/>
+                        </group>
+
+                        <group>
+                            <field name="money" placeholder="Số tiền tối thiểu" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="position_rule_action" model="ir.actions.act_window">
+            <field name="name">Vị trí</field>
+            <field name="res_model">position.rule</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                  Thêm vị trí mới!
+              </p>
+            </field>
+        </record>
+
+        <menuitem id="position_rule_management" name="Vị trí" parent="staff_menu" action="position_rule_action"/>
+
+    </data>
+</odoo>

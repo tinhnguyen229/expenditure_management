@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="staff_view_tree" model="ir.ui.view">
+            <field name="name">staff.tree</field>
+            <field name="model">staff</field>
+            <field name="arch" type="xml">
+                <tree string="Staff">
+                    <field name="name"/>
+                    <field name="team"/>
+                    <field name="position_id"/>
+                    <field name="phone_num"/>
+                    <field name="email"/>
+                    <field name="date_of_birth"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="staff_view_form" model="ir.ui.view">
+            <field name="name">staff.form</field>
+            <field name="model">staff</field>
+            <field name="arch" type="xml">
+                <form string="Staff">
+                    <sheet>
+                        <div>
+                            <h1>
+                                <field name="name" placeholder="Tên nhân viên"/>
+                            </h1>
+                            <h2>
+                                <field name="position_id"/>
+                            </h2>
+                            <field name="team" placeholder="Team"/>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="phone_num" widget="phone"/>
+                                <field name="email" widget="email"/>
+                            </group>
+                            <group>
+                                <field name="date_of_birth"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="staff_action" model="ir.actions.act_window">
+            <field name="name">Nhân viên</field>
+            <field name="res_model">staff</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                  Thêm nhân viên mới!
+              </p>
+            </field>
+        </record>
+
+        <menuitem id="staff_menu" name="Quản lí thu chi"/>
+        <menuitem id="staff_management" name="Nhân viên" parent="staff_menu" action="staff_action"/>
+
+    </data>
+</odoo>
