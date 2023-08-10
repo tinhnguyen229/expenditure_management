@@ -33,6 +33,7 @@
         # 'views/views.xml',
         # 'views/templates.xml',
         'views/staff_view.xml',
+        'views/income_view.xml',
         'views/position_rule_view.xml',
         'security/expenditure_security.xml',
         'security/ir.model.access.csv',

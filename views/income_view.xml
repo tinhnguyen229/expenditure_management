@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="income_view_tree" model="ir.ui.view">
+            <field name="name">income.tree</field>
+            <field name="model">income</field>
+            <field name="arch" type="xml">
+                <tree string="Income">
+                    <field name="staff_id"/>
+                    <field name="payment"/>
+                    <field name="payment_status"/>
+                    <field name="debt"/>
+                    <field name="debt_status"/>
+                    <field name="date" options="{'format': 'DD/MM/YYYY'}"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="income_view_form" model="ir.ui.view">
+            <field name="name">income.form</field>
+            <field name="model">income</field>
+            <field name="arch" type="xml">
+                <form string="Income">
+                    <sheet>
+                        <group>
+                            <field name="staff_id"/>
+                        </group>
+
+                        <group>
+                            <field name="payment"/>
+                            <field name="payment_status"/>
+                        </group>
+
+                        <group>
+                            <field name="debt"/>
+                            <field name="debt_status"/>
+                        </group>
+
+                        <group>
+                            <field name="date" options="{'format': 'DD/MM/YYYY'}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="income_action" model="ir.actions.act_window">
+            <field name="name">Thu</field>
+            <field name="res_model">income</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                  Thêm khoản thu mới!
+              </p>
+            </field>
+        </record>
+
+        <menuitem id="income_management" name="Thu" parent="staff_menu" action="income_action"/>
+
+    </data>
+</odoo>

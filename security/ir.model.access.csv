@@ -1,5 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_staff_user,staff.user,model_staff,expenditure_management.group_staff_user,1,0,1,0
+access_staff_user,staff.user,model_staff,expenditure_management.group_staff_user,1,0,0,0
 access_staff_manager,staff.manager,model_staff,expenditure_management.group_staff_manager,1,1,1,1
-access_staff_user,position.rule.user,model_position_rule,expenditure_management.group_position_rule_user,1,0,1,0
-access_staff_manager,position.rule.manager,model_position_rule,expenditure_management.group_position_rule_manager,1,1,1,1

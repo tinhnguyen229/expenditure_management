@@ -16,6 +16,7 @@
             <field name="category_id" ref="module_category_staff" />
             <field name="implied_ids" eval="[(4, ref('group_staff_user'))]" />
         </record>
+
     </data>
 
     <data noupdate="1">
