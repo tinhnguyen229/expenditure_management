@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="expense_view_tree" model="ir.ui.view">
+            <field name="name">expense.tree</field>
+            <field name="model">expense</field>
+            <field name="arch" type="xml">
+                <tree string="Expense">
+                    <field name="expense_amount" sum="Tổng tiền đã chi"/>
+                    <field name="date" />
+                    <field name="person"/>
+                    <field name="note"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="expense_view_form" model="ir.ui.view">
+            <field name="name">expense.form</field>
+            <field name="model">expense</field>
+            <field name="arch" type="xml">
+                <form string="Expense">
+                    <sheet>
+                        <group>
+                            <field name="date"/>
+                            <field name="expense_amount"/>
+                            <field name="person"/>
+                            <field name="item_ids">
+                                <form>
+                                    <group>
+                                        <field name="name"/>
+                                        <field name="cost"/>
+                                        <field name="quantity"/>
+                                        <field name="total_cost"/>
+                                        <field name="note"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="expense_view_search" model="ir.ui.view">
+            <field name="name">expense.search</field>
+            <field name="model">expense</field>
+            <field name="arch" type="xml">
+                <search string="Expense Search">
+                    <field name="date"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="expense_action" model="ir.actions.act_window">
+            <field name="name">Chi</field>
+            <field name="res_model">expense</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                  Thêm vật phẩm đã mua!
+              </p>
+            </field>
+        </record>
+
+        <menuitem id="expense_management" name="Chi" parent="staff_menu" action="expense_action"/>
+
+    </data>
+</odoo>

@@ -7,7 +7,7 @@
             <field name="arch" type="xml">
                 <tree string="Income">
                     <field name="staff_id"/>
-                    <field name="payment"/>
+                    <field name="payment" sum="Số tiền đóng"/>
                     <field name="payment_status"/>
                     <field name="debt"/>
                     <field name="debt_status"/>
@@ -41,6 +41,18 @@
                         </group>
                     </sheet>
                 </form>
+            </field>
+        </record>
+
+        <record id="income_view_search" model="ir.ui.view">
+            <field name="name">income.search</field>
+            <field name="model">income</field>
+            <field name="arch" type="xml">
+                <search string="Income Search">
+                    <field name="staff_id"/>
+                    <field name="date"/>
+                    <field name="payment_status"/>
+                </search>
             </field>
         </record>
 

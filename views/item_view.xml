@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="item_view_tree" model="ir.ui.view">
+            <field name="name">item.tree</field>
+            <field name="model">item</field>
+            <field name="arch" type="xml">
+                <tree string="Item">
+                    <field name="name"/>
+                    <field name="cost"/>
+                    <field name="quantity"/>
+                    <field name="total_cost"/>
+                    <!--<field name='date'/>-->
+                    <field name="note"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="item_view_form" model="ir.ui.view">
+            <field name="name">item.form</field>
+            <field name="model">item</field>
+            <field name="arch" type="xml">
+                <form string="Item">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="cost"/>
+                            <field name="quantity"/>
+                            <field name="total_cost"/>
+                            <!--<field name='date'/>-->
+                            <field name="note"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="item_view_search" model="ir.ui.view">
+            <field name="name">item.search</field>
+            <field name="model">item</field>
+            <field name="arch" type="xml">
+                <search string="Expense Search">
+                    <field name="name"/>
+                    <field name="cost"/>
+                    <field name="quantity"/>
+                    <field name="note"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="item_action" model="ir.actions.act_window">
+            <field name="name">Vật phẩm</field>
+            <field name="res_model">item</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                  Thêm vật phẩm đã mua!
+              </p>
+            </field>
+        </record>
+<!--
+        <menuitem id="item_management" name="Vật phẩm" parent="staff_menu" action="item_action"/>
+-->
+    </data>
+</odoo>
