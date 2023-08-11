@@ -8,7 +8,7 @@
                 <tree string="Expense">
                     <field name="expense_amount" sum="Tổng tiền đã chi"/>
                     <field name="date" />
-                    <field name="person"/>
+                    <field name="staff_id"/>
                     <field name="note"/>
                 </tree>
             </field>
@@ -23,8 +23,18 @@
                         <group>
                             <field name="date"/>
                             <field name="expense_amount"/>
-                            <field name="person"/>
+                            <field name="staff_id"/>
+                        </group>
+                        <group>
                             <field name="item_ids">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="cost"/>
+                                    <field name="quantity"/>
+                                    <field name="total_cost"/>
+                                    <field name="note"/>
+                                </tree>
+
                                 <form>
                                     <group>
                                         <field name="name"/>
@@ -47,6 +57,8 @@
             <field name="arch" type="xml">
                 <search string="Expense Search">
                     <field name="date"/>
+                    <field name="staff_id"/>
+                    <field name="note"/>
                 </search>
             </field>
         </record>
@@ -57,7 +69,7 @@
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
               <p class="o_view_nocontent_smiling_face">
-                  Thêm vật phẩm đã mua!
+                  Thêm khoản chi!
               </p>
             </field>
         </record>

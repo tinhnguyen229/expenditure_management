@@ -1,6 +1,70 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
+        <!--Báo cáo chi-->
+        <record id="income_report_view_graph" model="ir.ui.view">
+            <field name="name">income.graph</field>
+            <field name="model">income</field>
+            <field name="arch" type="xml">
+                <graph string="Income Analysis" sample="1">
+                    <field name="date"/>
+                    <field name="staff_id"/>
+                    <field name="payment" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="income_report_actions_all" model="ir.actions.act_window">
+            <field name="name">Báo cáo thu</field>
+            <field name="res_model">income</field>
+            <field name="view_mode">graph</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_empty_folder">
+                    No data yet!
+                </p><p>
+                    Create new expenses to get statistics.
+                </p>
+            </field>
+        </record>
+
+        <record id="income_report_actions_all_graph" model="ir.actions.act_window.view">
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="income_report_view_graph"/>
+            <field name="act_window_id" ref="income_report_actions_all"/>
+        </record>
+
+        <!--Báo cáo chi -->
+        <record id="expense_report_view_graph" model="ir.ui.view">
+            <field name="name">expense.graph</field>
+            <field name="model">expense</field>
+            <field name="arch" type="xml">
+                <graph string="Expense Analysis" sample="1">
+                    <field name="date"/>
+                    <field name="expense_amount" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="expense_report_actions_all" model="ir.actions.act_window">
+            <field name="name">Báo cáo chi</field>
+            <field name="res_model">expense</field>
+            <field name="view_mode">graph</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_empty_folder">
+                </p><p>
+                </p>
+            </field>
+        </record>
+
+        <record id="expense_report_actions_all_graph" model="ir.actions.act_window.view">
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="expense_report_view_graph"/>
+            <field name="act_window_id" ref="expense_report_actions_all"/>
+        </record>
+        <menuitem id="menu_report" name="Báo cáo" parent="staff_menu"/>
+        <menuitem id="menu_report_all_income" name="Báo cáo thu"  parent="menu_report" action="income_report_actions_all"/>
+        <menuitem id="menu_report_all_expense" name="Báo cáo chi"  parent="menu_report" action="expense_report_actions_all"/>
+
         <!--
         <record id="hr_expense_view_graph" model="ir.ui.view">
             <field name="name">hr.expense.graph</field>
@@ -11,6 +75,18 @@
                     <field name="employee_id"/>
                     <field name="total_amount" type="measure"/>
                 </graph>
+            </field>
+        </record>
+
+        <record id="hr_expense_view_pivot" model="ir.ui.view">
+            <field name="name">hr.expense.pivot</field>
+            <field name="model">hr.expense</field>
+            <field name="arch" type="xml">
+                <pivot string="Expenses Analysis" sample="1">
+                    <field name="employee_id" type="row"/>
+                    <field name="date" interval="month" type="col"/>
+                    <field name="total_amount" type="measure"/>
+                </pivot>
             </field>
         </record>
 
@@ -31,6 +107,12 @@
         <record id="hr_expense_actions_all_graph" model="ir.actions.act_window.view">
             <field name="view_mode">graph</field>
             <field name="view_id" ref="hr_expense.hr_expense_view_graph"/>
+            <field name="act_window_id" ref="hr_expense_actions_all"/>
+        </record>
+
+        <record id="hr_expense_actions_all_pivot" model="ir.actions.act_window.view">
+            <field name="view_mode">pivot</field>
+            <field name="view_id" ref="hr_expense.hr_expense_view_pivot"/>
             <field name="act_window_id" ref="hr_expense_actions_all"/>
         </record>
 

@@ -11,8 +11,8 @@ class Income(models.Model):
 
     payment = fields.Float(string='Số tiền đóng')
     payment_status = fields.Boolean(string='Đã đóng', compute='_compute_payment_status', store=True)
-    debt = fields.Float(string='Số tiền còn thiếu')
-    debt_status = fields.Boolean(string='Còn thiếu')
+    debt = fields.Float(string='Số tiền còn thiếu', compute='_compute_debt', store=True)
+    debt_status = fields.Boolean(string='Còn thiếu', compute='_compute_debt', store=True)
     date = fields.Date(string='Ngày đóng', default=datetime.today())
 
     @api.depends('payment')
@@ -20,7 +20,7 @@ class Income(models.Model):
         for r in self:
             r.payment_status = True if (r.payment!=0) else False
 
-    @api.onchange('payment', 'staff_id')
+    @api.depends('payment', 'staff_id')
     def _compute_debt(self):
         for r in self:
             # min_money = self.staff_id

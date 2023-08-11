@@ -7,7 +7,7 @@ class Expense(models.Model):
 
     date = fields.Date(string='Ngày chi')
     item_ids = fields.One2many('item', 'expense_id', string='Vật phẩm')
-    person = fields.Many2one('staff', string='Người chi')
+    staff_id = fields.Many2one('staff', string='Người chi')
     note = fields.Text(string='Ghi chú')
     expense_amount = fields.Float('Số tiền đã chi', compute='_compute_expense_amount', store=True)
 

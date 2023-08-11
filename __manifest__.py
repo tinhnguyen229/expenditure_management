@@ -37,7 +37,7 @@
         'views/income_view.xml',
         'views/expense_view.xml',
         'views/item_view.xml',
-        # 'views/report_view.xml',
+        'views/report_view.xml',
 
         'security/expenditure_security.xml',
         'security/ir.model.access.csv',
