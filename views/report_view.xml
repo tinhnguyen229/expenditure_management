@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
-        <!--Báo cáo chi-->
+        <!--Income Report-->
         <record id="income_report_view_graph" model="ir.ui.view">
             <field name="name">income.graph</field>
             <field name="model">income</field>
@@ -33,7 +33,7 @@
             <field name="act_window_id" ref="income_report_actions_all"/>
         </record>
 
-        <!--Báo cáo chi -->
+        <!--Expense Report-->
         <record id="expense_report_view_graph" model="ir.ui.view">
             <field name="name">expense.graph</field>
             <field name="model">expense</field>
