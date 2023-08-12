@@ -26,3 +26,4 @@ class Income(models.Model):
             # min_money = self.staff_id
             r.debt = r.min_money - r.payment
             r.debt_status = True if r.debt > 0 else False
+

@@ -61,10 +61,40 @@
             <field name="view_id" ref="expense_report_view_graph"/>
             <field name="act_window_id" ref="expense_report_actions_all"/>
         </record>
+
+        <!--Income Total
+        <record id="total_income_view_form" model="ir.ui.view">
+            <field name="name">income_view.form</field>
+            <field name="model">income</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name=""/>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="total_income_action" model="ir.actions.act_window">
+            <field name="name">Tổng thu</field>
+            <field name="res_model">income</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+
+              </p>
+            </field>
+        </record>
+-->
         <menuitem id="menu_report" name="Báo cáo" parent="staff_menu"/>
         <menuitem id="menu_report_all_income" name="Báo cáo thu"  parent="menu_report" action="income_report_actions_all"/>
         <menuitem id="menu_report_all_expense" name="Báo cáo chi"  parent="menu_report" action="expense_report_actions_all"/>
-
+        <!--
+        <menuitem id="menu_total_income_report" name="Ngân quỹ"  parent="menu_report" action="total_income_action"/>
+-->
         <!--
         <record id="hr_expense_view_graph" model="ir.ui.view">
             <field name="name">hr.expense.graph</field>

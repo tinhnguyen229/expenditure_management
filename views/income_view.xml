@@ -33,7 +33,7 @@
 
                         <group>
                             <field name="debt"/>
-                            <field name="debt_status"/>
+                            <field name="debt_status" widget='toggle_active'/>
                         </group>
 
                         <group>
