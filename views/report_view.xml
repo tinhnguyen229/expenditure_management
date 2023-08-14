@@ -67,7 +67,7 @@
             <field name="name">report.tree</field>
             <field name="model">report</field>
             <field name="arch" type="xml">
-                <tree string="Balance">
+                <tree string="Ngân quỹ">
                     <field name="total_income"/>
                     <field name="total_expense"/>
                     <field name="balance"/>
