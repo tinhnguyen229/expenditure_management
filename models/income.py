@@ -27,3 +27,4 @@ class Income(models.Model):
             r.debt = r.min_money - r.payment
             r.debt_status = True if r.debt > 0 else False
 
+

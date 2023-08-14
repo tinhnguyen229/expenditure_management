@@ -39,6 +39,7 @@
                         <group>
                             <field name="date" options="{'format': 'DD/MM/YYYY'}"/>
                         </group>
+
                     </sheet>
                 </form>
             </field>

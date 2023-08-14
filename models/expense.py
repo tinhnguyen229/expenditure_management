@@ -11,8 +11,6 @@ class Expense(models.Model):
     note = fields.Text(string='Ghi chú')
     expense_amount = fields.Float('Số tiền đã chi', compute='_compute_expense_amount', store=True)
 
-
-
     @api.depends('item_ids')
     def _compute_expense_amount(self):
         for r in self:

@@ -58,8 +58,8 @@
               </p>
             </field>
         </record>
-<!--
+
         <menuitem id="item_management" name="Vật phẩm" parent="staff_menu" action="item_action"/>
--->
+
     </data>
 </odoo>
