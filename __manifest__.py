@@ -41,6 +41,10 @@
 
         'security/expenditure_security.xml',
         'security/ir.model.access.csv',
+
+        #'data/mail_template_custom.xml',
+        'data/my_mail_template.xml',
+        'data/send_mail_template.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

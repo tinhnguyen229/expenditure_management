@@ -1,5 +1,7 @@
 from odoo import models, fields, api
 import re
+from datetime import datetime, date, timedelta
+
 class Staff(models.Model):
     _name = 'staff'
     _description = 'Staff Model'
@@ -13,10 +15,10 @@ class Staff(models.Model):
     #                          ('staff', 'Staff'), ('intern', 'Intern')],
     #                         string='Vị trí', defaul='staff')
     phone_num = fields.Char(string='Số ĐT')
-    email = fields.Char(string='Email', compute='_get_email', store=True)
+    email = fields.Char(string='Email', store=True)
     position_id = fields.Many2one('position.rule', string='Vị trí công việc')
 
-    @api.depends('name')
+    @api.onchange('name')
     def _get_email(self):
         for record in self:
             name_list = Staff.no_accent_vietnamese(str(record.name).lower()).split()
@@ -46,3 +48,22 @@ class Staff(models.Model):
         s = re.sub(r'[Đ]', 'D', s)
         s = re.sub(r'[đ]', 'd', s)
         return s
+
+    @api.model
+    def send_mail_from_auto(self):
+        # first_day_of_month = date.today().replace(day=1)
+        # last_day_of_month = date.today().replace(day=1, month=date.today().month % 12 + 1) - timedelta(days=1)
+        # domain = [('date', '>=', first_day_of_month), ('date', '<=', last_day_of_month), ('debt_status', '=', False)]
+        # income_current_month = self.env['income'].search(domain)
+        #
+        # staff_id = self.env['staff'].search([])
+        # staff_id_paid = income_current_month.staff_id
+        # staff_unpaid = staff_id - staff_id_paid
+
+        template = self.env.ref('expenditure_management.my_mail_template')
+        # staff_unpaid = self.filter_unpaid_staff()
+        # for r in staff_unpaid:
+        #     template.send_mail(r.id, force_send=True)
+        # st = self.search([])
+        for r in self:
+            template.send_mail(r.id)

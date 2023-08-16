@@ -17,3 +17,4 @@ access_item_user,item_user,model_item,expenditure_management_group_user,1,0,0,0
 
 access_report_manager,report_manager,model_report,expenditure_management_group_manager,1,0,0,0
 access_report_user,report_user,model_report,expenditure_management_group_user,1,0,0,0
+
