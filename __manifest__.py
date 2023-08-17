@@ -29,9 +29,9 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        # 'views/views.xml',
-        # 'views/templates.xml',
+        'security/expenditure_security.xml',
+        'security/ir.model.access.csv',
+
         'views/staff_view.xml',
         'views/position_rule_view.xml',
         'views/income_view.xml',
@@ -39,12 +39,8 @@
         'views/item_view.xml',
         'views/report_view.xml',
 
-        'security/expenditure_security.xml',
-        'security/ir.model.access.csv',
-
-        #'data/mail_template_custom.xml',
-        'data/my_mail_template.xml',
         'data/send_mail_template.xml',
+        'data/mail_template_tinhnn.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

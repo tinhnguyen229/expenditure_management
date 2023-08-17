@@ -50,20 +50,24 @@ class Staff(models.Model):
         return s
 
     @api.model
-    def send_mail_from_auto(self):
-        # first_day_of_month = date.today().replace(day=1)
-        # last_day_of_month = date.today().replace(day=1, month=date.today().month % 12 + 1) - timedelta(days=1)
-        # domain = [('date', '>=', first_day_of_month), ('date', '<=', last_day_of_month), ('debt_status', '=', False)]
-        # income_current_month = self.env['income'].search(domain)
-        #
-        # staff_id = self.env['staff'].search([])
-        # staff_id_paid = income_current_month.staff_id
-        # staff_unpaid = staff_id - staff_id_paid
+    def send_mail_auto(self):
+        first_day_of_month = date.today().replace(day=1)
+        last_day_of_month = date.today().replace(day=1, month=date.today().month % 12 + 1) - timedelta(days=1)
+        # domain search
+        domain = [('date', '>=', first_day_of_month), ('date', '<=', last_day_of_month), ('debt_status', '=', False)]
+        # filter income in a month
+        income_current_month = self.env['income'].search(domain)
 
-        template = self.env.ref('expenditure_management.my_mail_template')
-        # staff_unpaid = self.filter_unpaid_staff()
-        # for r in staff_unpaid:
-        #     template.send_mail(r.id, force_send=True)
-        # st = self.search([])
-        for r in self:
+        # get all staffs
+        staff_id = self.env['staff'].search([])
+        # get staffs paid in a month
+        staff_id_paid = income_current_month.staff_id
+        # get staffs unpaid in a month
+        staff_unpaid = staff_id - staff_id_paid
+
+        # refer to mail_template_tinhnn.xml file with file's ID: 'send_mail_template_tttt'
+        template = self.env.ref('expenditure_management.send_mail_template_tttt')
+
+        # for loop to send mail. Call send_mail_auto() method in send_mail_template.xml file
+        for r in staff_unpaid:
             template.send_mail(r.id)

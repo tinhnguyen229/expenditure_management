@@ -15,6 +15,6 @@ access_expense_user,expense_user,model_expense,expenditure_management_group_user
 access_item_manager,item_manager,model_item,expenditure_management_group_manager,1,1,1,1
 access_item_user,item_user,model_item,expenditure_management_group_user,1,0,0,0
 
-access_report_manager,report_manager,model_report,expenditure_management_group_manager,1,0,0,0
+access_report_manager,report_manager,model_report,expenditure_management_group_manager,1,0,1,0
 access_report_user,report_user,model_report,expenditure_management_group_user,1,0,0,0
 
